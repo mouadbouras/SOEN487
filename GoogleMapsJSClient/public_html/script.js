@@ -54,9 +54,8 @@
         {
             console.log(twitterName);
             $.ajax({
-                url: 'http://localhost:8080/MashupWebService/webresources/mashedservice/'+twitterName +'/spotify',
+                url: 'https://arcane-wave-75994.herokuapp.com/webresources/mashedservice/'+twitterName +'/spotify',
                 type: 'GET',
-                //data: '',
                 dataType: "json",
                 processData: false,
                 success: function(data) { 
@@ -81,9 +80,3 @@
             
         }        
         
-        
-                
-        
-      
-//});      
-
