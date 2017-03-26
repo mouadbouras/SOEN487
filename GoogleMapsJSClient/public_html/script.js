@@ -61,17 +61,21 @@
                 success: function(data) { 
                     
                     console.log(data["twiits"]); 
-                    var output = "<h3>" + data.twiits.username + "</h3>" + 
-                                 "<p>" + data.twiits.description + "</p><br>";
+                    var output = "<div class='user-info'><h3>" + data.twiits.username + "</h3>" + 
+                                 "<h3><small>" + data.twiits.description + "</small></h3></div>";
                     for(var i = 0 ; i < data.twiits.tweets.length ; i++)
                     {
-                        output += "<p><em>" + data.twiits.tweets[i].text + "</em></p><br />";
+                        output += "<div class='tweet'><p>" + data.twiits.tweets[i].text + 
+                                    "<br><br>" + data.twiits.tweets[i].date + 
+                                    " Likes : " + data.twiits.tweets[i].likes + 
+                                    " Retweets : " + data.twiits.tweets[i].retweets +  
+                                "</p></div>";
                     }
                          console.log(data.twiits.length);
                     $("#twitter").html(output);
                 },
                 error:  function(data) { 
-                    $("#twitter").html("<h2>Nothing found</h2>");
+                    $("#twitter").html("<div class='user-info'><h2>Nothing found</h2></div>");
 
                 }
                   
