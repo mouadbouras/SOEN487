@@ -21,6 +21,41 @@
               center: {lat: 45.5425158, lng: -73.6378987},
               zoom: 11
             });
+            
+            map.addListener('click', function(event) {
+                var latitude = event.latLng.lat();
+                var longitude = event.latLng.lng();
+                
+                infowindow.setPosition(event.latLng);
+                infowindow.setContent("<h5>New Marker : </h5>" +
+                                      "" +
+                                      "<div class='row' style='width:245px; margin-top:5px'><div class='col-xs-4' >Name :</div><div class='col-xs-8' style='margin-top:5px'> <input id='markerName' style='width:132px' type='text'> </div></div>" +
+                                      "<div class='row' style='width:245px;margin-top:5px'><div class='col-xs-4' >Twitter :</div><div class='col-xs-8' style='margin-top:5px'> <input id='markerTwitter' style='width:132px' type='text'></div> </div>" +
+                                      "<div class='row' style='width:245px; margin-top:5px'><div class='col-xs-4' >Spotify :</div><div class='col-xs-8' style='margin-top:5px'> <input id='markerSpotify' style='width:132px' type='text'> </div></div>" + 
+                                      "<div class='row' style='width:245px; margin-top:5px'><div class='col-xs-12 text-right'><button id='markerButton' type='button' class='btn btn-default btn-sm'> Add </button></div></div>" +
+                                      "");
+                infowindow.open(map);
+                
+                $('#markerButton').click(function(){
+
+                var marker = { name: $('#markerName').val() , 
+                               label : $('#markerName').val().trim().charAt(0).toUpperCase() , 
+                               lat : latitude , lng : longitude, 
+                               twitter : $('#markerTwitter').val() , spotify : $('#markerSpotify').val()};
+                placeMarker( marker );          
+                infowindow.close();
+
+
+                });
+
+                
+
+                
+                
+          });
+
+          
+
 
             function placeMarker( mymarker ) {
                 var marker = new google.maps.Marker({
@@ -83,4 +118,7 @@
             }); 
             
         }        
-        
+$(function() {            
+
+
+});
