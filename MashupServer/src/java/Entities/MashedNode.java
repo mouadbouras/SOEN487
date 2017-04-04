@@ -16,20 +16,23 @@ import javax.xml.bind.annotation.XmlRootElement;
  @XmlRootElement
 public class MashedNode {
     public TwitterNode twiits;
-    public String spotifyNode;
+    public LastFmNode music;
     
     public MashedNode(){
         twiits = new TwitterNode();
+        music = new LastFmNode();
     };
     
-    public void LoadData(String twitter, String spotify){
+    public void LoadData(String twitter, String lastfm){
         
         
         twiits.username = twitter;
         twiits.description = "";
+        music.user=lastfm;
+        
+        if (twitter != "")twiits.getFeed();  
+        if (lastfm != "")music.getMusic();  
 
-        if (twitter == "") return;
-        twiits.getFeed();  
         
     }
     

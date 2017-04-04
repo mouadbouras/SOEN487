@@ -44,14 +44,15 @@ public class MashedService {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{twitter}/{spofity}")
+    @Path("{twitter}/{lastfm}")
 
     public MashedNode getJson(@PathParam("twitter") String twitter,
-                          @PathParam("spotify") String spotify) {
+                          @PathParam("lastfm") String lastfm) {
         //TODO return proper representation object
         MashedNode mn = new MashedNode();
-        mn.LoadData(twitter , spotify);
-        System.out.println(mn.twiits.username);
+        //System.out.println("asdfasdf " + lastfm);
+
+        mn.LoadData(twitter , lastfm);
         
         return mn;
         //throw new UnsupportedOperationException();
