@@ -10,6 +10,7 @@
 
   </head>
   <body>
+    <img class="grey-spinner" src="img/grey.gif" alt="Loading" >
     <div class="container-fluid w-bg">
         <div class="row text-center ">
             <div class="col-xs-3 ">
@@ -27,20 +28,23 @@
       <div class="container-fluid" id="main-content">
           <div class="row">
               <div class="col-xs-3 text-center">
-
+                  <img class="spinner blue-spinner" src="img/blue.gif" alt="Loading" >
                   <div id="twitter" class="text-left">
                     </div>
-                  <img class="spinner" src="img/blue.gif" alt="Loading" >
                   
               </div>
               <div class="col-xs-6">
                   <div id="map"></div> 
+
+                  <br />
+                  <div class="alert alert-success" id="success" >Success!</div>
+                  <div class="alert alert-danger" id="error" >Error: Missing Data!</div>
+                  
               </div>   
               <div class="col-xs-3 text-center">
-
+                    <img class="spinner red-spinner" src="img/red.gif" alt="Loading" >
                   <div id="lastFm" class="text-left">
                     </div>  
-                    <img class="spinner" src="img/red.gif" alt="Loading" >
                   
               </div>
 
